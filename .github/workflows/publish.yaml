@@ -39,8 +39,8 @@ jobs:
       - name: Get secret
         id: secret
         run: |
-          echo ${{ secrets.CARGO_REGISTRY_TOKEN != '' }}
-          echo "token_exists=$exists" >> "$GITHUB_OUTPUT";
+          token=${{secrets.CARGO_REGISTRY_TOKEN != ''}}
+          echo "token_exists=$token" >> "$GITHUB_OUTPUT";
 
       - name: print-info - skip publish-crate
         if: ${{ steps.secret.outputs.token_exists != 'true' }}
