@@ -1,0 +1,77 @@
+name: Cargo Semver Checks
+
+on:
+  workflow_call:
+    inputs:
+      bump-version:
+        type: string
+        required: true
+  workflow_dispatch:
+    inputs:
+      bump-version:
+        description: "Bump version: (e.g. -> 3.6.1)"
+        type: string
+      release_type:
+        type: choice
+        default: none
+        options:
+          - none
+          - patch
+          - minor
+          - major
+
+jobs:
+  check-for-lib:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Repository
+        uses: actions/checkout@v4
+
+      - name: Install stable toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Install jql
+        uses: taiki-e/install-action@v2
+        with:
+          tool: jql
+
+      - name: Searching for lib
+        id: searching
+        run: |
+          result=$(cargo metadata --format-version=1 --no-deps | jql '"packages"|>"targets"<|[0]|>"kind"' | jql '..' -i);
+          echo "targets=$result" >> "$GITHUB_OUTPUT";
+          echo kind of targets $result;
+
+      - name: print-info - skip cargo-semver-checks
+        if: ${{ !contains(steps.searching.outputs.targets, 'lib') }}
+        run: echo "cargo semver-check only works in libraries"
+
+    outputs:
+      is_lib: ${{ contains(steps.searching.outputs.targets, 'lib') }}
+
+  cargo-semver-checks:
+    needs: check-for-lib
+    if: ${{ needs.check-for-lib.outputs.is_lib == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Repository
+        uses: actions/checkout@v4
+
+      - name: Install stable toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Install cargo-bump
+        if: ${{ inputs.bump-version || inputs.release_type != 'none'}}
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-bump
+
+      - name: Run cargo bump
+        if: ${{ inputs.bump-version || inputs.release_type != 'none'}}
+        run: cargo bump ${{ inputs.bump-version || inputs.release_type}}
+
+      - name: Check semver
+        uses: obi1kenobi/cargo-semver-checks-action@v2
+        with:
+          rust-toolchain: manual
+          shared-key: my-workspace-semver

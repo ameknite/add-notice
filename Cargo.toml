@@ -1,0 +1,26 @@
+[package]
+name = "add-notice"
+description = "A cli tool to add notices to files"
+authors = ["AmeKnite"]
+version = "0.1.0"
+license = "MPL-2.0"
+repository = "https://github.com/ameknite/add-notice"
+readme = "README.md"
+edition = "2021"
+keywords = ["cli", "header", "notice", "license"]
+categories = ["command-line-utilities"]
+rust-version = "1.74.1"
+
+[dependencies]
+clap = { version = "4.5.3", features = ["derive"] }
+color-eyre = { version = "0.6.3", default-features = false }
+walkdir = "2.5.0"
+
+# https://doc.rust-lang.org/cargo/reference/profiles.html
+# https://github.com/johnthagen/min-sized-rust
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

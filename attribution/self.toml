@@ -1,0 +1,7 @@
+[self]
+name = "add-notice"
+version = "0.1.0"
+description = "A cli tool to add notices to files"
+license = "MPL-2.0"
+authors = ["AmeKnite"]
+repository = "https://github.com/ameknite/add-notice"
