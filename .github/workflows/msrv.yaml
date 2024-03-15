@@ -83,6 +83,6 @@ jobs:
           regex: false
 
       - name: Commit and Push
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update MSRV from [${{steps.data-msrv.outputs.current}}] to [${{steps.data-msrv.outputs.new}}]"
