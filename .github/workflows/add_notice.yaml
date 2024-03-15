@@ -18,7 +18,7 @@ jobs:
         id: check-files
         uses: andstor/file-existence-action@v3
         with:
-          files: "package.json, LICENSE, README.md, foo, *.txt"
+          files: "NOTICE"
 
       - name: print-info - skip add-notice
         if: steps.check-files.outputs.files_exists
