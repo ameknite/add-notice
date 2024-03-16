@@ -29,10 +29,10 @@ jobs:
     with:
       bump-version: ${{ inputs.version  }}
 
-  # add-notice:
-  #   uses: ./.github/workflows/add_notice.yaml
-  #   with:
-  #     message: ${{  inputs.version }}
+  add-notice:
+    uses: ./.github/workflows/add_notice.yaml
+    with:
+      commit_message: ${{  inputs.version }}
 
   bump-version:
     needs: [cargo-semver-checks]
@@ -44,4 +44,4 @@ jobs:
     needs: [bump-version]
     uses: ./.github/workflows/update_attributions.yaml
     with:
-      message: ${{ inputs.version }}
+      commit_message: ${{ inputs.version }}

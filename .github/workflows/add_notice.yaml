@@ -18,6 +18,8 @@ on:
       comment_styles:
         type: string
         description: Comment Styles, e.g. //,#,//
+      commit_message:
+        type: string
   workflow_dispatch:
     inputs:
       message:
@@ -82,4 +84,4 @@ jobs:
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Add Notice to New Files"
+          commit_message: "[${{ inputs.version_message || 'Manual run' }}] Add Notice to New Files"
