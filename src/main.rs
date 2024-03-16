@@ -12,7 +12,7 @@ use std::{
 
 use clap::Parser;
 use color_eyre::{
-    eyre::{Context, Ok, Result},
+    eyre::{bail, Context, Ok, Result},
     Section,
 };
 use walkdir::WalkDir;
@@ -77,12 +77,17 @@ fn main() -> Result<()> {
             return Ok(());
         }
 
-        if let Some(new_content_path) = replace_with_file {
-            remove_notice(&dir, &current_notice, &extension)?;
-            replace_notice_with_file(&notice_path, &new_content_path)?;
-            let notice = fmt_notice_content(&notice_path, &comment_style)?;
-            insert_notice(&dir, &notice, &extension)?;
-            return Ok(());
+        if let Some(ref new_content_path) = replace_with_file {
+            if notice_path.canonicalize()? == new_content_path.canonicalize()? {
+                bail!("Don't do that, you will be appending the new notice over the previous one instead of replacing");
+            }
+            if new_content_path.exists() {
+                remove_notice(&dir, &current_notice, &extension)?;
+                replace_notice_with_file(&notice_path, new_content_path)?;
+                let notice = fmt_notice_content(&notice_path, &comment_style)?;
+                insert_notice(&dir, &notice, &extension)?;
+                return Ok(());
+            }
         }
 
         insert_notice(&dir, &current_notice, &extension)?;
