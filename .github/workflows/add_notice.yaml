@@ -5,6 +5,19 @@ permissions:
 
 on:
   workflow_call:
+    inputs:
+      message:
+        type: string
+        description: Replace notice with this message
+      notice_path:
+        type: string
+        description: Path to the notice file
+      extensions:
+        type: string
+        description: Apply notice by extensions, e.g. rs,js,kt.
+      comment_styles:
+        type: string
+        description: Comment Styles, e.g. //,#,//
   workflow_dispatch:
     inputs:
       message:
@@ -31,7 +44,7 @@ jobs:
         id: check-files
         uses: andstor/file-existence-action@v3
         with:
-          files: ${{ inputs.notice_path || './NOTICE'}}
+          files: ${{ inputs.notice_path || './NOTICE' }}
 
       - name: print if skip add-notice
         if: steps.check-files.outputs.files_exists
