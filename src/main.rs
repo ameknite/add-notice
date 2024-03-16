@@ -28,13 +28,13 @@ struct Args {
     #[arg(long, default_value = ".")]
     dir: PathBuf,
 
-    /// select files by extension, e.g. rs,js,kt
+    /// select files by extension, e.g. rs,js,kt. Needs to be in sync with comment_styles
     #[arg(short, long, default_values_t = ["rs".to_string()], value_delimiter = ',')]
     extensions: Vec<String>,
 
-    /// comment style
-    #[arg(short, long, default_value = "//")]
-    comment_style: String,
+    /// comment styles, e.g. //,#,// Needs to be in sync with extensions
+    #[arg(short, long, default_values_t = ["//".to_string()], value_delimiter = ',')]
+    comment_styles: Vec<String>,
 
     /// remove notice in files
     #[arg(short, long)]
@@ -55,36 +55,39 @@ fn main() -> Result<()> {
         notice: notice_path,
         dir,
         extensions,
-        comment_style,
+        comment_styles,
         remove,
         replace_with_string,
         replace_with_file,
     } = Args::parse();
 
-    let notice = fmt_notice_content(&notice_path, &comment_style)?;
+    for (extension, comment_style) in extensions.into_iter().zip(comment_styles) {
+        let current_notice = fmt_notice_content(&notice_path, &comment_style)?;
 
-    if remove {
-        remove_notice(&dir, &notice, &extensions)?;
-        return Ok(());
+        if remove {
+            remove_notice(&dir, &current_notice, &extension)?;
+            return Ok(());
+        }
+
+        if let Some(new_content_string) = replace_with_string {
+            remove_notice(&dir, &current_notice, &extension)?;
+            replace_notice_with_string(&notice_path, &new_content_string)?;
+            let notice = fmt_notice_content(&notice_path, &comment_style)?;
+            insert_notice(&dir, &notice, &extension)?;
+            return Ok(());
+        }
+
+        if let Some(new_content_path) = replace_with_file {
+            remove_notice(&dir, &current_notice, &extension)?;
+            replace_notice_with_file(&notice_path, &new_content_path)?;
+            let notice = fmt_notice_content(&notice_path, &comment_style)?;
+            insert_notice(&dir, &notice, &extension)?;
+            return Ok(());
+        }
+
+        insert_notice(&dir, &current_notice, &extension)?;
     }
 
-    if let Some(new_content_string) = replace_with_string {
-        remove_notice(&dir, &notice, &extensions)?;
-        replace_notice_with_string(&notice_path, &new_content_string)?;
-        let notice = fmt_notice_content(&notice_path, &comment_style)?;
-        insert_notice(&dir, &notice, &extensions)?;
-        return Ok(());
-    }
-
-    if let Some(new_content_path) = replace_with_file {
-        remove_notice(&dir, &notice, &extensions)?;
-        replace_notice_with_file(&notice_path, &new_content_path)?;
-        let notice = fmt_notice_content(&notice_path, &comment_style)?;
-        insert_notice(&dir, &notice, &extensions)?;
-        return Ok(());
-    }
-
-    insert_notice(&dir, &notice, &extensions)?;
     Ok(())
 }
 
@@ -107,18 +110,18 @@ fn fmt_notice_content(file_path: &Path, comment_style: &str) -> color_eyre::Resu
     Ok(notice_comment)
 }
 
-fn insert_notice(dir: &Path, notice: &str, extensions: &[String]) -> color_eyre::Result<()> {
+fn insert_notice(dir: &Path, notice: &str, extension: &str) -> color_eyre::Result<()> {
     for entry in WalkDir::new(dir) {
         let entry = entry?;
         let file_path = entry.path();
 
         // Skip if the file doesn't have a extension
-        let Some(extension) = file_path.extension().and_then(|e| e.to_str()) else {
+        let Some(file_extension) = file_path.extension().and_then(|e| e.to_str()) else {
             continue;
         };
 
         // Skip if the extension was not provided
-        if extensions.iter().all(|e| e != extension) {
+        if file_extension != extension {
             continue;
         }
 
@@ -147,18 +150,18 @@ fn insert_notice(dir: &Path, notice: &str, extensions: &[String]) -> color_eyre:
     Ok(())
 }
 
-fn remove_notice(dir: &Path, notice: &str, extensions: &[String]) -> color_eyre::Result<()> {
+fn remove_notice(dir: &Path, notice: &str, extension: &str) -> color_eyre::Result<()> {
     for entry in WalkDir::new(dir) {
         let entry = entry?;
         let file_path = entry.path();
 
         // Skip if the file doesn't have a extension
-        let Some(extension) = file_path.extension().and_then(|e| e.to_str()) else {
+        let Some(file_extension) = file_path.extension().and_then(|e| e.to_str()) else {
             continue;
         };
 
         // Skip if the extension was not provided
-        if extensions.iter().all(|e| e != extension) {
+        if file_extension != extension {
             continue;
         }
 
