@@ -6,6 +6,8 @@ on:
       version:
         type: string
         required: true
+      update-msrv:
+        type: boolean
   workflow_dispatch:
     inputs:
       version:

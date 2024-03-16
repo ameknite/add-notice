@@ -18,6 +18,8 @@ on:
           - patch
           - minor
           - major
+      update-msrv:
+        type: boolean
 
 jobs:
   validate-input:
@@ -97,6 +99,7 @@ jobs:
     uses: ./.github/workflows/pre_release.yaml
     with:
       version: ${{ needs.get-version.outputs.crate_version }}
+      update-msrv: ${{ inputs.update-msrv }}
 
   create-tag:
     needs: [get-version, pre-release]
@@ -134,7 +137,7 @@ jobs:
           allow-missing-changelog: true
           ref: refs/tags/${{ needs.get-version.outputs.tag_version }}
 
-  skip-if-only-lib:
+  check-if-bin:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch Repository
@@ -163,7 +166,8 @@ jobs:
       is_bin: ${{ contains(steps.searching.outputs.targets, 'bin') }}
 
   build-and-release:
-    needs: [get-version, create-release, skip-if-only-lib]
+    needs: [get-version, create-release, check-if-bin]
+    if: ${{ needs.check-if-bin.outputs.is_bin == 'true' }}
     name: ${{ matrix.target }} (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
@@ -205,7 +209,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: refs/tags/${{  needs.get-version.outputs.tag_version }}
           checksum: sha256
-          dry-run: ${{ needs.skip-if-only-lib.outputs.is_bin == 'true' }}
 
   publish-crate:
     needs: [create-tag]

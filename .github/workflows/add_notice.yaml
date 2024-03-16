@@ -1,11 +1,24 @@
 name: Add Notice
 
+permissions:
+  contents: write
+
 on:
   workflow_call:
+  workflow_dispatch:
     inputs:
       message:
         type: string
-  workflow_dispatch:
+        description: Replace notice with this message
+      notice_path:
+        type: string
+        description: Path to the notice file
+      extensions:
+        type: string
+        description: Apply notice by extensions, e.g. rs,js,kt.
+      comment_styles:
+        type: string
+        description: Comment Styles, e.g. //,#,//
 
 jobs:
   check-notice-existence:
@@ -18,11 +31,11 @@ jobs:
         id: check-files
         uses: andstor/file-existence-action@v3
         with:
-          files: "NOTICE"
+          files: ${{ inputs.notice_path || './NOTICE'}}
 
       - name: print if skip add-notice
         if: steps.check-files.outputs.files_exists
-        run: echo "add-notice needs a ./NOTICE file"
+        run: echo "add-notice needs a ${{ inputs.notice_path || './NOTICE'}} file"
 
     outputs:
       notice_exist: ${{ steps.check-files.outputs.files_exists }}
@@ -46,9 +59,14 @@ jobs:
           tool: add-notice
 
       - name: Run add-notice
-        run: add-notice
-
+        if: ${{ inputs.message == '' }}
+        run: add-notice --notice ${{ inputs.notice_path || './NOTICE' }} -e ${{ inputs.extensions || 'rs' }} -c ${{ inputs.comment_styles || '//' }}
+      
+      - name: Replace notice
+        if: ${{ inputs.message }}
+        run: add-notice --notice ${{ inputs.notice_path || './NOTICE' }} --replace-with-string ${{ inputs.message }} -e ${{ inputs.extensions || 'rs' }} -c ${{ inputs.comment_styles || '//' }}
+      
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "[${{ inputs.message || 'Manual run' }}]: Add Notice to New Files"
+          commit_message: Add Notice to New Files"
