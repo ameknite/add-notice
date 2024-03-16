@@ -5,34 +5,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-for-bin:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fetch Repository
-        uses: actions/checkout@v4
-
-      - name: Install stable toolchain
-        uses: actions-rust-lang/setup-rust-toolchain@v1
-
-      - name: Install jql
-        uses: taiki-e/install-action@v2
-        with:
-          tool: jql
-
-      - name: Searching for bin
-        id: searching
-        run: |
-          result=$(cargo metadata --format-version=1 --no-deps | jql '"packages"|>"targets"<|[0]|>"kind"' | jql '..' -i);
-          echo "targets=$result" >> "$GITHUB_OUTPUT";
-          echo kind of targets $result;
-
-      - name: print-info - skip publish-crate
-        if: ${{ !contains(steps.searching.outputs.targets, 'bin') }}
-        run: echo "cargo semver-check only works in libraries"
-
-    outputs:
-      is_bin: ${{ contains(steps.searching.outputs.targets, 'bin') }}
-
   check-secret-existence:
     runs-on: ubuntu-latest
     steps:
@@ -42,16 +14,14 @@ jobs:
           token=${{secrets.CARGO_REGISTRY_TOKEN != ''}}
           echo "token_exists=$token" >> "$GITHUB_OUTPUT";
 
-      - name: print-info - skip publish-crate
-        if: ${{ steps.secret.outputs.token_exists != 'true' }}
-        run: echo "add secrets.CARGO_REGISTRY_TOKEN to your github repo"
-
-    outputs:
-      secret_exist: ${{ steps.secret.outputs.token_exists }}
+      - name: Fail if secrets.CARGO_REGISTRY_TOKEN doesn't exists
+        if: ${{ steps.secret.outputs.token_exits == 'false' }}
+        run: |
+          echo "add secrets.CARGO_REGISTRY_TOKEN to your github repo""
+          exit 1;
 
   publish-crate:
-    needs: [check-secret-existence, check-for-bin]
-    if: ${{ needs.check-secret-existence.outputs.secret_exist == 'true' && needs.check-for-bin.outputs.is_bin == 'true' }}
+    needs: [check-secret-existence]
     runs-on: ubuntu-latest
     steps:
       - name: Fetch Repository

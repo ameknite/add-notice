@@ -20,7 +20,7 @@ jobs:
         with:
           files: "NOTICE"
 
-      - name: print-info - skip add-notice
+      - name: print if skip add-notice
         if: steps.check-files.outputs.files_exists
         run: echo "add-notice needs a ./NOTICE file"
 
@@ -40,13 +40,13 @@ jobs:
       - name: Install stable toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
 
-      - name: Install cargo-attribution
+      - name: Install add-notice
         uses: taiki-e/install-action@v2
         with:
-          tool: add-header
+          tool: add-notice
 
-      - name: Run cargo attribution
-        run: add-header
+      - name: Run add-notice
+        run: add-notice
 
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v5

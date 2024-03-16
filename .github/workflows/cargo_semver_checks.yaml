@@ -42,7 +42,7 @@ jobs:
           echo "targets=$result" >> "$GITHUB_OUTPUT";
           echo kind of targets $result;
 
-      - name: print-info - skip cargo-semver-checks
+      - name: print if skip cargo-semver-checks
         if: ${{ !contains(steps.searching.outputs.targets, 'lib') }}
         run: echo "cargo semver-check only works in libraries"
 
