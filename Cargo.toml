@@ -2,7 +2,7 @@
 name = "add-notice"
 description = "A cli tool to add notices to files"
 authors = ["AmeKnite"]
-version = "0.1.0"
+version = "0.2.0"
 license = "MPL-2.0"
 repository = "https://github.com/ameknite/add-notice"
 readme = "README.md"
