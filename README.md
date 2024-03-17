@@ -5,7 +5,6 @@
 ![Minimum Supported Rust Version](https://img.shields.io/badge/MSRV-1.74.1+-red)
 [![CI](https://github.com/ameknite/add-notice/workflows/CI/badge.svg)](https://github.com/ameknite/add-notice/actions?workflow=CI)
 
-
 ```bash
 A cli tool to add headers notices to files
 
@@ -49,7 +48,6 @@ Install a binary version:
 ```rust
 cargo binstall add-notice
 ```
-
 
 ## Purpose
 
