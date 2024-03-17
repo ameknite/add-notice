@@ -3,6 +3,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
+//! Cli tool to add header notices to files
 use std::{
     fmt::Write,
     fs::{self, File, OpenOptions},
@@ -61,7 +62,8 @@ fn main() -> Result<()> {
         replace_with_file,
     } = Args::parse();
 
-    for (extension, comment_style) in extensions.into_iter().zip(comment_styles) {
+    for (extension, comment_style) in extensions.into_iter().zip(comment_styles)
+    {
         let current_notice = fmt_notice_content(&notice_path, &comment_style)?;
 
         if remove {
@@ -96,7 +98,10 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-fn fmt_notice_content(file_path: &Path, comment_style: &str) -> color_eyre::Result<String> {
+fn fmt_notice_content(
+    file_path: &Path,
+    comment_style: &str,
+) -> color_eyre::Result<String> {
     let mut notice_file = File::open(file_path)
         .wrap_err("Notice file not found")
         .suggestion("Use the --notice option or create a ./NOTICE file.")?;
@@ -115,13 +120,19 @@ fn fmt_notice_content(file_path: &Path, comment_style: &str) -> color_eyre::Resu
     Ok(notice_comment)
 }
 
-fn insert_notice(dir: &Path, notice: &str, extension: &str) -> color_eyre::Result<()> {
+fn insert_notice(
+    dir: &Path,
+    notice: &str,
+    extension: &str,
+) -> color_eyre::Result<()> {
     for entry in WalkDir::new(dir) {
         let entry = entry?;
         let file_path = entry.path();
 
         // Skip if the file doesn't have a extension
-        let Some(file_extension) = file_path.extension().and_then(|e| e.to_str()) else {
+        let Some(file_extension) =
+            file_path.extension().and_then(|e| e.to_str())
+        else {
             continue;
         };
 
@@ -155,13 +166,19 @@ fn insert_notice(dir: &Path, notice: &str, extension: &str) -> color_eyre::Resul
     Ok(())
 }
 
-fn remove_notice(dir: &Path, notice: &str, extension: &str) -> color_eyre::Result<()> {
+fn remove_notice(
+    dir: &Path,
+    notice: &str,
+    extension: &str,
+) -> color_eyre::Result<()> {
     for entry in WalkDir::new(dir) {
         let entry = entry?;
         let file_path = entry.path();
 
         // Skip if the file doesn't have a extension
-        let Some(file_extension) = file_path.extension().and_then(|e| e.to_str()) else {
+        let Some(file_extension) =
+            file_path.extension().and_then(|e| e.to_str())
+        else {
             continue;
         };
 
@@ -195,7 +212,10 @@ fn remove_notice(dir: &Path, notice: &str, extension: &str) -> color_eyre::Resul
     Ok(())
 }
 
-fn replace_notice_with_string(notice_path: &Path, new_content: &str) -> color_eyre::Result<()> {
+fn replace_notice_with_string(
+    notice_path: &Path,
+    new_content: &str,
+) -> color_eyre::Result<()> {
     let mut notice_file = OpenOptions::new()
         .write(true)
         .truncate(true)
@@ -207,7 +227,10 @@ fn replace_notice_with_string(notice_path: &Path, new_content: &str) -> color_ey
     Ok(())
 }
 
-fn replace_notice_with_file(notice_path: &Path, new_content_path: &Path) -> color_eyre::Result<()> {
+fn replace_notice_with_file(
+    notice_path: &Path,
+    new_content_path: &Path,
+) -> color_eyre::Result<()> {
     let mut notice_file = OpenOptions::new()
         .write(true)
         .truncate(true)
