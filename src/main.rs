@@ -29,7 +29,7 @@ struct Args {
     #[arg(long, default_value = ".")]
     dir: PathBuf,
 
-    /// select files by extension, e.g. rs,js,kt. Needs to be in sync with comment_styles
+    /// select files by extension, e.g. rs,js,kt. Needs to be in sync with `comment_styles`
     #[arg(short, long, default_values_t = ["rs".to_string()], value_delimiter = ',')]
     extensions: Vec<String>,
 
