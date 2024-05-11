@@ -33,7 +33,7 @@ struct Args {
     #[arg(short, long, default_values_t = ["rs".to_string()], value_delimiter = ',')]
     extensions: Vec<String>,
 
-    /// comment styles, e.g. //,#,// Needs to be in sync with extensions
+    /// comment styles, e.g. //,#,// Needs to be in sync with   `extensions`
     #[arg(short, long, default_values_t = ["//".to_string()], value_delimiter = ',')]
     comment_styles: Vec<String>,
 
