@@ -251,7 +251,7 @@ repository = "https://github.com/jam1garner/owo-colors"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.81"
+version = "1.0.82"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
@@ -270,14 +270,14 @@ repository = "https://github.com/dtolnay/quote"
 
 [[dependencies]]
 name = "rustc-demangle"
-version = "0.1.23"
+version = "0.1.24"
 description = """
 Rust compiler symbol demangling.
 """
 license = "MIT/Apache-2.0"
 notices = ["Copyright (c) 2014 Alex Crichton"]
 authors = ["Alex Crichton <alex@alexcrichton.com>"]
-repository = "https://github.com/alexcrichton/rustc-demangle"
+repository = "https://github.com/rust-lang/rustc-demangle"
 
 [[dependencies]]
 name = "same-file"
@@ -308,7 +308,7 @@ repository = "https://github.com/rapidfuzz/strsim-rs"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.60"
+version = "2.0.63"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
