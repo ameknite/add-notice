@@ -72,7 +72,7 @@ repository = "https://github.com/rust-lang/backtrace-rs"
 
 [[dependencies]]
 name = "cc"
-version = "1.0.97"
+version = "1.0.98"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -191,7 +191,7 @@ repository = "https://github.com/polyfill-rs/is_terminal_polyfill"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.154"
+version = "0.2.155"
 description = """
 Raw FFI bindings to platform libraries like libc.
 """
@@ -214,7 +214,7 @@ repository = "https://github.com/BurntSushi/memchr"
 
 [[dependencies]]
 name = "miniz_oxide"
-version = "0.7.2"
+version = "0.7.3"
 description = "DEFLATE compression and decompression library rewritten in Rust based on miniz"
 license = "MIT OR Zlib OR Apache-2.0"
 notices = ["Copyright (c) 2017 Frommi", "Copyright (c) 2020 Frommi"]
@@ -251,7 +251,7 @@ repository = "https://github.com/jam1garner/owo-colors"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.82"
+version = "1.0.83"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
@@ -308,7 +308,7 @@ repository = "https://github.com/rapidfuzz/strsim-rs"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.63"
+version = "2.0.65"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
