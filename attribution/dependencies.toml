@@ -251,7 +251,7 @@ repository = "https://github.com/jam1garner/owo-colors"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.84"
+version = "1.0.85"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
