@@ -44,7 +44,7 @@ homepage = "https://github.com/rust-cli/anstyle"
 
 [[dependencies]]
 name = "anstyle-query"
-version = "1.0.3"
+version = "1.1.0"
 description = "Look up colored console capabilities"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -72,7 +72,7 @@ repository = "https://github.com/rust-lang/backtrace-rs"
 
 [[dependencies]]
 name = "cc"
-version = "1.0.98"
+version = "1.0.99"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -98,7 +98,7 @@ repository = "https://github.com/alexcrichton/cfg-if"
 
 [[dependencies]]
 name = "clap"
-version = "4.5.4"
+version = "4.5.7"
 description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -106,7 +106,7 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_builder"
-version = "4.5.2"
+version = "4.5.7"
 description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
@@ -114,19 +114,19 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_derive"
-version = "4.5.4"
+version = "4.5.5"
 description = "Parse command line argument by defining a struct, derive crate."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
-repository = "https://github.com/clap-rs/clap/tree/master/clap_derive"
+repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_lex"
-version = "0.7.0"
+version = "0.7.1"
 description = "Minimal, flexible command line parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
-repository = "https://github.com/clap-rs/clap/tree/master/clap_lex"
+repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "color-eyre"
@@ -202,7 +202,7 @@ repository = "https://github.com/rust-lang/libc"
 
 [[dependencies]]
 name = "memchr"
-version = "2.7.2"
+version = "2.7.4"
 description = """
 Provides extremely fast (uses SIMD on x86_64, aarch64 and wasm32) routines for
 1, 2 or 3 byte search and single substring search.
@@ -214,7 +214,7 @@ repository = "https://github.com/BurntSushi/memchr"
 
 [[dependencies]]
 name = "miniz_oxide"
-version = "0.7.3"
+version = "0.7.4"
 description = "DEFLATE compression and decompression library rewritten in Rust based on miniz"
 license = "MIT OR Zlib OR Apache-2.0"
 notices = ["Copyright (c) 2017 Frommi", "Copyright (c) 2020 Frommi"]
@@ -325,7 +325,7 @@ repository = "https://github.com/dtolnay/unicode-ident"
 
 [[dependencies]]
 name = "utf8parse"
-version = "0.2.1"
+version = "0.2.2"
 description = "Table-driven UTF-8 parser"
 license = "Apache-2.0 OR MIT"
 notices = ["Copyright (c) 2016 Joe Wilm"]
