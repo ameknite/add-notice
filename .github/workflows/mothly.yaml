@@ -11,7 +11,6 @@ permissions:
 jobs:
   build_and_release:
     uses: ./.github/workflows/build_and_release.yaml
-    with: 
+    with:
       release_type: patch
       check-to-publish: true
-    
