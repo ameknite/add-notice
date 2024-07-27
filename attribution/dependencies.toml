@@ -17,7 +17,7 @@ repository = "https://github.com/jonas-schievink/adler.git"
 
 [[dependencies]]
 name = "anstream"
-version = "0.6.14"
+version = "0.6.15"
 description = "A simple cross platform library for writing colored text to a terminal."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -26,7 +26,7 @@ homepage = "https://github.com/rust-cli/anstyle"
 
 [[dependencies]]
 name = "anstyle"
-version = "1.0.7"
+version = "1.0.8"
 description = "ANSI text styling"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2022 The rust-cli Developers"]
@@ -35,7 +35,7 @@ homepage = "https://github.com/rust-cli/anstyle"
 
 [[dependencies]]
 name = "anstyle-parse"
-version = "0.2.4"
+version = "0.2.5"
 description = "Parse ANSI Style Escapes"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2016 Joe Wilm and individual contributors"]
@@ -44,7 +44,7 @@ homepage = "https://github.com/rust-cli/anstyle"
 
 [[dependencies]]
 name = "anstyle-query"
-version = "1.1.0"
+version = "1.1.1"
 description = "Look up colored console capabilities"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -52,7 +52,7 @@ repository = "https://github.com/rust-cli/anstyle"
 
 [[dependencies]]
 name = "anstyle-wincon"
-version = "3.0.3"
+version = "3.0.4"
 description = "Styling legacy Windows terminals"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015 Josh Triplett, 2022 The rust-cli Developers"]
@@ -98,7 +98,7 @@ repository = "https://github.com/alexcrichton/cfg-if"
 
 [[dependencies]]
 name = "clap"
-version = "4.5.9"
+version = "4.5.11"
 description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -106,7 +106,7 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_builder"
-version = "4.5.9"
+version = "4.5.11"
 description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
@@ -114,7 +114,7 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_derive"
-version = "4.5.8"
+version = "4.5.11"
 description = "Parse command line argument by defining a struct, derive crate."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
@@ -122,7 +122,7 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_lex"
-version = "0.7.1"
+version = "0.7.2"
 description = "Minimal, flexible command line parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
@@ -138,7 +138,7 @@ repository = "https://github.com/eyre-rs/eyre"
 
 [[dependencies]]
 name = "colorchoice"
-version = "1.0.1"
+version = "1.0.2"
 description = "Global override of color control"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -183,7 +183,7 @@ repository = "https://github.com/yaahc/indenter"
 
 [[dependencies]]
 name = "is_terminal_polyfill"
-version = "1.70.0"
+version = "1.70.1"
 description = "Polyfill for `is_terminal` stdlib feature for use with older MSRVs"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -308,7 +308,7 @@ repository = "https://github.com/rapidfuzz/strsim-rs"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.71"
+version = "2.0.72"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
