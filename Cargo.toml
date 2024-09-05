@@ -9,7 +9,7 @@ readme = "README.md"
 edition = "2021"
 keywords = ["cli", "header", "notice", "license"]
 categories = ["command-line-utilities"]
-rust-version = "1.74.1"
+rust-version = "1.81.0"
 
 [dependencies]
 clap = { version = "4.5.16", features = ["derive"] }
