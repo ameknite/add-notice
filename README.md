@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MPL2.0-blue.svg)](https://www.mozilla.org/en-US/MPL/2.0/)
 [![Crates.io](https://img.shields.io/crates/v/add-notice.svg)](https://crates.io/crates/add-notice)
-![Minimum Supported Rust Version](https://img.shields.io/badge/MSRV-1.74.1+-red)
+![Minimum Supported Rust Version](https://img.shields.io/badge/MSRV-1.81.0+-red)
 [![CI](https://github.com/ameknite/add-notice/workflows/CI/badge.svg)](https://github.com/ameknite/add-notice/actions?workflow=CI)
 
 ```bash
