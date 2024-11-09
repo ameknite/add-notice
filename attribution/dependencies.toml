@@ -17,7 +17,7 @@ repository = "https://github.com/jonas-schievink/adler.git"
 
 [[dependencies]]
 name = "anstream"
-version = "0.6.17"
+version = "0.6.18"
 description = "A simple cross platform library for writing colored text to a terminal."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -72,7 +72,7 @@ repository = "https://github.com/rust-lang/backtrace-rs"
 
 [[dependencies]]
 name = "cc"
-version = "1.1.31"
+version = "1.1.37"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -191,7 +191,7 @@ repository = "https://github.com/polyfill-rs/is_terminal_polyfill"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.161"
+version = "0.2.162"
 description = """
 Raw FFI bindings to platform libraries like libc.
 """
@@ -327,7 +327,7 @@ repository = "https://github.com/rapidfuzz/strsim-rs"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.86"
+version = "2.0.87"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
