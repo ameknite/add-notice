@@ -72,7 +72,7 @@ repository = "https://github.com/rust-lang/backtrace-rs"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.4"
+version = "1.2.5"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -191,7 +191,7 @@ repository = "https://github.com/polyfill-rs/is_terminal_polyfill"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.168"
+version = "0.2.169"
 description = """
 Raw FFI bindings to platform libraries like libc.
 """
