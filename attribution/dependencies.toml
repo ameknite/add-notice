@@ -98,7 +98,7 @@ repository = "https://github.com/alexcrichton/cfg-if"
 
 [[dependencies]]
 name = "clap"
-version = "4.5.23"
+version = "4.5.24"
 description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -106,7 +106,7 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_builder"
-version = "4.5.23"
+version = "4.5.24"
 description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
@@ -114,7 +114,7 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_derive"
-version = "4.5.18"
+version = "4.5.24"
 description = "Parse command line argument by defining a struct, derive crate."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
@@ -327,7 +327,7 @@ repository = "https://github.com/rapidfuzz/strsim-rs"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.94"
+version = "2.0.95"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
