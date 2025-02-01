@@ -335,7 +335,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "unicode-ident"
-version = "1.0.15"
+version = "1.0.16"
 description = "Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31"
 license = "(MIT OR Apache-2.0) AND Unicode-3.0"
 notices = ["Copyright © 1991-2023 Unicode, Inc."]
