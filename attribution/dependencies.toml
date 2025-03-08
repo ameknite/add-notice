@@ -251,7 +251,7 @@ repository = "https://github.com/jam1garner/owo-colors"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.93"
+version = "1.0.94"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
@@ -262,7 +262,7 @@ repository = "https://github.com/dtolnay/proc-macro2"
 
 [[dependencies]]
 name = "quote"
-version = "1.0.38"
+version = "1.0.39"
 description = "Quasi-quoting macro quote!(...)"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -327,7 +327,7 @@ repository = "https://github.com/rapidfuzz/strsim-rs"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.98"
+version = "2.0.99"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -335,7 +335,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "unicode-ident"
-version = "1.0.17"
+version = "1.0.18"
 description = "Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31"
 license = "(MIT OR Apache-2.0) AND Unicode-3.0"
 notices = ["Copyright © 1991-2023 Unicode, Inc."]
