@@ -98,7 +98,7 @@ repository = "https://github.com/alexcrichton/cfg-if"
 
 [[dependencies]]
 name = "clap"
-version = "4.5.31"
+version = "4.5.32"
 description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -106,7 +106,7 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_builder"
-version = "4.5.31"
+version = "4.5.32"
 description = "A simple to use, efficient, and full-featured Command Line Argument Parser"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
@@ -114,7 +114,7 @@ repository = "https://github.com/clap-rs/clap"
 
 [[dependencies]]
 name = "clap_derive"
-version = "4.5.28"
+version = "4.5.32"
 description = "Parse command line argument by defining a struct, derive crate."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015-2022 Kevin B. Knapp and Clap Contributors"]
@@ -191,7 +191,7 @@ repository = "https://github.com/polyfill-rs/is_terminal_polyfill"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.170"
+version = "0.2.171"
 description = """
 Raw FFI bindings to platform libraries like libc.
 """
@@ -234,7 +234,7 @@ repository = "https://github.com/gimli-rs/object"
 
 [[dependencies]]
 name = "once_cell"
-version = "1.20.3"
+version = "1.21.1"
 description = "Single assignment cells and lazy values."
 license = "MIT OR Apache-2.0"
 authors = ["Aleksey Kladov <aleksey.kladov@gmail.com>"]
@@ -262,7 +262,7 @@ repository = "https://github.com/dtolnay/proc-macro2"
 
 [[dependencies]]
 name = "quote"
-version = "1.0.39"
+version = "1.0.40"
 description = "Quasi-quoting macro quote!(...)"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -327,7 +327,7 @@ repository = "https://github.com/rapidfuzz/strsim-rs"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.99"
+version = "2.0.100"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
