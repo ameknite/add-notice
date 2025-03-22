@@ -72,7 +72,7 @@ repository = "https://github.com/rust-lang/backtrace-rs"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.16"
+version = "1.2.17"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
