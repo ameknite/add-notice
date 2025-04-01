@@ -1,6 +1,6 @@
 [self]
 name = "add-notice"
-version = "0.2.12"
+version = "0.2.13"
 description = "A cli tool to add notices to files"
 license = "MPL-2.0"
 authors = ["AmeKnite"]
