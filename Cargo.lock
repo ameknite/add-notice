@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "add-notice"
-version = "0.2.13"
+version = "0.2.14"
 dependencies = [
  "clap",
  "color-eyre",
